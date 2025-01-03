@@ -7,17 +7,17 @@ export const Header = (props) => {
     <header id="header">
       <div className="intro">
         <div className="overlay">
-        <div>
+        <div style={{display:"flex"}}>
           <img src={logo} alt="logo" width="" height="150px"/>
+          <h1 className="poppins-bold col-md-offset-2">
+                  {props.data ? props.data.title : "Loading..."}
+          </h1>
         </div>
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
-                <h1 className="poppins-bold">
-                  {props.data ? props.data.title : "Loading..."}
-                  <span></span>
-                </h1>
-                <p>Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience.</p>
+              
+                <p>We’re working hard to bring you an enhanced experience! Our website is currently under development and will be live soon.</p>
                 <CountdownTimer/>
               </div>
             </div>

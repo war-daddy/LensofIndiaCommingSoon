@@ -226,7 +226,7 @@ a:focus,
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;
-  margin-top: 0;
+  /* margin-top: -160px; */
   margin-bottom: 10px;
 }
 .intro h1 span {
@@ -242,6 +242,7 @@ a:focus,
   line-height: 30px;
   margin: 0 auto;
   margin-bottom: 60px;
+  margin-top: 35%;
 }
 header .intro-text {
   padding-top: 50px;
@@ -612,9 +613,11 @@ label {
   }
   .intro h1 {
     font-size: 48px;
+    /* margin-top: -20px; */
   }
   .intro p {
     font-size: 18px;
+    /* margin-top: 45%; */
   }
   .intro img {
     width: 150px;
@@ -632,7 +635,7 @@ label {
   align-items: center; /* Center the icons vertically */
   bottom: 20; /* Align to the bottom of the page */
   width: 100%; /* Full width */ 
-  position: fixed;
+  /* position: fixed; */
 }
 
 /* Individual Icon Styles */
