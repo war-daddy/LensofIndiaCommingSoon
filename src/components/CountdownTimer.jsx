@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import './CountdownTimer.css'; 
+import './CountdownTimer.css';
+
+// Function to calculate the remaining time in seconds
+const calculateTimeLeft = (targetDate) => {
+  const now = new Date().getTime(); // Current time in milliseconds
+  return Math.max(Math.floor((targetDate - now) / 1000), 0); // Time left in seconds
+};
 
 const CountdownTimer = () => {
-  const oneMonthInSeconds = 30 * 24 * 60 * 60; 
-  const [timeLeft, setTimeLeft] = useState(oneMonthInSeconds);
+  // Set the target date and time
+  const targetDate = new Date('2025-02-01T00:00:00').getTime();
+
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDate));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prevTime) => Math.max(prevTime - 1, 0));
+      setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(timer); // Cleanup the interval on unmount
+  }, [targetDate]);
 
+  // Calculate days, hours, minutes, and seconds from timeLeft
   const days = Math.floor(timeLeft / (24 * 60 * 60));
   const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
   const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
